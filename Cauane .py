@@ -1,20 +1,4 @@
-"""
-Monitor de Preço/Promoção - Template Base
--------------------------------------------
-Monitora o preço de um produto numa página e avisa via Telegram
-quando o preço cair abaixo de um valor-alvo.
- 
-DEPENDÊNCIAS:
-    pip install requests beautifulsoup4 schedule
- 
-COMO CONFIGURAR:
-1. Preencha PRODUTO_URL com o link do produto
-2. Ache o seletor CSS certo do preço (veja instruções abaixo)
-3. Configure TELEGRAM_TOKEN e TELEGRAM_CHAT_ID (veja instruções abaixo)
-4. Ajuste PRECO_ALVO
-5. Rode: python monitor_promocao.py
-"""
- 
+
 import requests
 from bs4 import BeautifulSoup
 import schedule
@@ -23,22 +7,18 @@ import json
 import os
 from datetime import datetime
  
-# ========== CONFIGURAÇÕES ==========
-PRODUTO_URL = "https://www.exemplo.com/produto/teclado-aula-68he"
-PRODUTO_NOME = "Teclado AULA Win 68HE Max"
-PRECO_ALVO = 250.00  # avisa quando o preço for <= esse valor
+
+PRODUTO_URL = "https://www.amazon.com.br/Echo-Dot-4%C2%AA-gera%C3%A7%C3%A3o-Cor-Azul/dp/B09B8QFYZ2/?_encoding=UTF8"
+PRODUTO_NOME = "Echo Dot"
+PRECO_ALVO = 450.00  
  
-# Seletor CSS onde fica o preço na página (varia de site pra site)
-# Exemplo Kabum: 'h4.finalPrice'
-# Exemplo Amazon: 'span.a-price-whole'
-# Use o inspetor do navegador (F12) pra achar o seletor certo
 SELETOR_PRECO = "span.price"
  
-# Telegram Bot (crie um bot com @BotFather no Telegram, é grátis)
-TELEGRAM_TOKEN = "SEU_TOKEN_AQUI"
-TELEGRAM_CHAT_ID = "SEU_CHAT_ID_AQUI"
+
+TELEGRAM_TOKEN = "8766729105:AAGnWLXIKCfY7mD-ziOlEK8p9ii4_L1o1YY"
+TELEGRAM_CHAT_ID = "8670638438"
  
-INTERVALO_HORAS = 3  # de quanto em quanto tempo checar
+INTERVALO_HORAS = 3  
 ARQUIVO_HISTORICO = "historico_precos.json"
  
 HEADERS = {
@@ -62,7 +42,6 @@ def buscar_preco():
         raise ValueError("Seletor não encontrou o preço. Confira SELETOR_PRECO.")
  
     texto = elemento.get_text(strip=True)
-    # Limpa "R$ 1.299,90" -> 1299.90
     limpo = texto.replace("R$", "").replace(".", "").replace(",", ".").strip()
     return float(limpo)
  
