@@ -8,7 +8,7 @@ import os
 from datetime import datetime
  
 
-PRODUTO_URL = "https://www.amazon.com.br/Echo-Dot-4%C2%AA-gera%C3%A7%C3%A3o-Cor-Azul/dp/B09B8QFYZ2/?_encoding=UTF8"
+PRODUTO_URL = "https://www.mercadolivre.com.br/amazon-echo-dot-5-geracao-alexa-assistente-virtual-cor-preto/p/MLB29598592?pdp_filters=item_id%3AMLB7328674122&from=gshop&matt_tool=19390443&matt_word=&matt_source=google&matt_campaign_id=22090354205&matt_ad_group_id=173090538956&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727882727919&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098639&matt_product_id=MLB29598592-product&matt_product_partition_id=2496654727118&matt_target_id=aud-2493968549214%3Apla-2496654727118&cq_src=google_ads&cq_cmp=22090354205&cq_net=g&cq_plt=gp&cq_med=pla"
 PRODUTO_NOME = "Echo Dot"
 PRECO_ALVO = 450.00  
  
