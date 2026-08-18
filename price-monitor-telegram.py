@@ -31,7 +31,6 @@ HEADERS = {
  
  
 def buscar_preco():
-    """Faz o request na página e extrai o preço."""
     resp = requests.get(PRODUTO_URL, headers=HEADERS, timeout=15)
     resp.raise_for_status()
  
@@ -47,7 +46,6 @@ def buscar_preco():
  
  
 def enviar_telegram(mensagem):
-    """Envia notificação via Telegram."""
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": mensagem}
     requests.post(url, data=payload, timeout=10)
